@@ -29,8 +29,8 @@ collect_vertices(G) ->
 collect_edges(G) ->
   Edges = digraph:edges(G),
   lists:map(fun(E) ->
-    {E, Source, Target, B} = digraph:edge(G, E),
-    Id = format_term(E),
+    {_E, Source, Target, B} = digraph:edge(G, E),
+    Id = format_term(B),
     Src = format_term(Source),
     Trgt = format_term(Target),
     {[{id, Id}, {source, Src}, {target, Trgt}]}
